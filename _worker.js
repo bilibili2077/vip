@@ -46,6 +46,7 @@ let proxyIPPool = [];
 let path = '/?ed=2560';
 let 动态UUID = userID;
 let link = [];
+let banHosts = [];
 let SCV = 'true';
 let allowInsecure = '&allowInsecure=1';
 export default {
@@ -4567,6 +4568,7 @@ async function nginx() {
 	`
     return text;
 }
+
 
 
 
