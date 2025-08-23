@@ -357,8 +357,6 @@ async function 维列斯OverWSHandler(request) {
             if (!banHosts.includes(addressRemote)) {
                 log(`处理 TCP 出站连接 ${addressRemote}:${portRemote}`);
                 handleTCPOutBound(remoteSocketWapper, addressType, addressRemote, portRemote, rawClientData, webSocket, 维列斯ResponseHeader, log);
-            } else {
-                handleTCPOutBound(`直接允许 ${addressRemote}:${portRemote}`);
             }
         },
         close() {
@@ -4567,4 +4565,5 @@ async function nginx() {
 	`
     return text;
 }
+
 
