@@ -46,7 +46,6 @@ let proxyIPPool = [];
 let path = '/?ed=2560';
 let 动态UUID = userID;
 let link = [];
-let banHosts = [atob('c3BlZWQuY2xvdWRmbGFyZS5jb20=')];
 let SCV = 'true';
 let allowInsecure = '&allowInsecure=1';
 export default {
@@ -359,7 +358,7 @@ async function 维列斯OverWSHandler(request) {
                 log(`处理 TCP 出站连接 ${addressRemote}:${portRemote}`);
                 handleTCPOutBound(remoteSocketWapper, addressType, addressRemote, portRemote, rawClientData, webSocket, 维列斯ResponseHeader, log);
             } else {
-                throw new Error(`黑名单关闭 TCP 出站连接 ${addressRemote}:${portRemote}`);
+                handleTCPOutBound(`直接允许 ${addressRemote}:${portRemote}`);
             }
         },
         close() {
@@ -4568,3 +4567,4 @@ async function nginx() {
 	`
     return text;
 }
+
